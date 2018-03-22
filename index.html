@@ -47,7 +47,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<div><img src="img/js.png " alt="" style="width:20%;"></div>
+					<div><img src="img/js_logo.png " alt="" style="width:18%;"></div>
 					<h1 style="margin-bottom:60px;font-size:50px;letter-spacing:normal">JavaScript - 101</h1>
 					<p>2018. 03. 23</p>
 					<p>IT 개발2팀 UI파트 - 김재호</p>
@@ -75,7 +75,7 @@
 					<section>
 						<h2>JavaScript?</h2>
 						<!-- <div><img src="img/html-css-javascript.png " alt="" style="width:30%;"></div> -->
-						<div><img src="img/java_vs_js.png " alt="" style="width:30%;"></div>
+						<div><img src="img/java_vs_js.png " alt="" style="width:30%"></div>
 						<ul style="margin-top:20px">
 							<li>HTML과 CSS는 정적인 언어</li>
 							<li>JavaScript는 HTML과 CSS로 만들어진 웹페이지를 동적으로 변경해주는 언어</li>
@@ -134,7 +134,7 @@
 							<li>1995년 브렌던 아이크(Brendan Eich) 넷스케이프 지원<br>모카 -> 라이브스크립트 -> 자바스크립트</li>
 							<li>국제 표준화 단체인 ECMA International에서 JavaScript 표준화 진행</li>
 							<li>크로스 브라우징, 보안 취약점 문제</li>
-							<li>전문적이지 못한 인식 (copy & paste)</li>
+							<li>전문적이지 못한 인식 (Copy & Paste)</li>
 						</ul>
 					</section>
 
@@ -142,8 +142,7 @@
 						<h2>JavaScript 환경 변화</h2>
 						<ul>
 							<li>데이터의 유형이 텍스트 -> 이미지 -> 미디어로 진화</li>
-							<li>개발비용, 난이도, 복잡도 증가</li>
-							<li>과거에 서버에서 담당하던 역할들이 상당 부분 트로 이동</li>
+							<li>과거에 서버에서 담당하던 역할들이 상당 부분 프론트 이동</li>
 						</ul>
 
 						<!-- 웹이 나오게된 배경 중 하나가 문서 표현 및 전달하기 위한 기술이 중심이었다.
@@ -156,7 +155,6 @@
 							<div style="max-width:50%;margin:0 5px"><span style="display:flex;align-items:center;justify-content:center;width:150px;height:150px;border-radius:100%;background:#fff"><img src="img/nodejs.png" alt="" style="width:80%"></span></div>
 							<div style="max-width:50%;margin:0 5px"><span style="display:flex;align-items:center;justify-content:center;width:150px;height:150px;border-radius:100%;background:#fff"><img src="img/es6.png" alt="" style="width:65%"></span></div>
 						</div>
-
 						<ul>
 							<li>Ajax - 전체 페이지를 다시 렌더링하지 않고 변경되는 부분만 갱신</li>
 							<li>jQuery - 보다 쉽게 DOM을 핸들링</li>
@@ -186,7 +184,7 @@
 						<ul>
 							<li>PC -> 모바일 사용자의 증가 (트래픽 감소와 속도, 사용성, 반응성 이슈)</li>
 							<li>프론트엔드 프레임워크의 강화 (React, Angular, Vue)</li>
-							<li>최초에 필요한 모든 정적 리소스를 한번 다운로드</li>
+							<li>필요한 모든 정적 리소스를 최초에 한번 다운로드</li>
 							<li>페이지 이동없이 고속으로 화면 전환</li>
 							<li>네이티브 앱과 유사한 사용자 경험 제공</li>
 						</ul>
@@ -198,7 +196,7 @@
 						<div><img src="img/unnamed.gif" alt=""></div>
 						<ul>
 							<li>모바일 앱의 단점 (개발, 빌드, 배포, 검색 다운로드, 설치)</li>
-							<li>홈 화면 아이콘 추가, 오프라인 서비스, 푸시 알림 등 웹에서도 가능하게 하는 기술 (Service Worker)</li>
+							<li>홈 화면 아이콘 추가, 오프라인 서비스, 푸시 알림 등 웹에서도 가능하게 하는 기술<br>(Service Worker)</li>
 						</ul>
 					</section>
 				</section>
@@ -214,7 +212,7 @@
 						<h2>코드 작성 준비</h2>
 						<ul>
 							<li>아래 코드를 HTML head, body 태그 안에 작성</li>
-							<li>script 태그 src 속성을 사용하여 외부 js 파일 연결</li>
+							<li>script 태그의 src 속성을 사용하여 외부 js 파일 연결</li>
 						</ul>
 						<pre><em class="file_name"><i class="devicons devicons-html5"></i>&nbsp;index.html</em><code class="html">
 		&lt;!-- internal --&gt;
@@ -305,12 +303,12 @@
 
 					<section>
 						<h2>변수의 중복 선언</h2>
-						<p>변수의 중복 선언은 문법적으로 허용되지만 사용하지 않는 것이 좋다.</p>
+						<p>변수의 중복 선언은 문법적으로 허용, 하지만 사용하지 않는 것이 좋음</p>
 						<pre><code class="js">
 	var x = 1;
 	console.log(x); //1
 
-	//변수의 중복 선언
+	//중복 선언
 	var x = 100;
 	console.log(x); //100
                         </code></pre>
@@ -318,29 +316,55 @@
 
 					<section>
 						<h2>변수 선언 시 var 키워드 생략 허용</h2>
-						<p>의도하지 않게 변수를 전역화할 수 있으므로 사용하지 않는 것이 좋다.</p>
+						<p>의도하지 않게 변수를 전역화할 수 있으므로 사용하지 않는 것이 좋음</p>
 						<pre><code class="js">
 	x = 1;
 	console.log(x); //1
                         </code></pre>
 					</section>
 
+
+					<section>
+						<h2>분산된 var 선언의 문제점</h2>
+						<pre><code class="js">
+	//예기치 않은 결과
+    function myFunction() {
+        console.log(foo); //① undefined
+        //Why no ReferenceError?
+
+        if(true) {
+            var foo = 123;
+            console.log(foo); //② 123
+        }
+    }
+
+    myFunction();
+                        </code></pre>
+					</section>
+
 					<section>
 						<h2>변수 호이스팅 (Hoisting)</h2>
+						<p>코드를 해석하기 전 var 선언 범위를 상단으로 이동 합니다.</p>
 						<ul>
 							<li>모든 변수 선언은 각 함수(스코프)의 가장 최상위로 끌어 올려짐</li>
 							<li>첫 줄 이후 선언된 변수들은 호이스팅으로 인해 선언한 곳 이전부터 존재</li>
-							<li>모든 변수들을 최상위에 함께 선안하고 값을 초기화 하는 것이<br>호이스팅으로 인해 발생할 수 있는 문제들을 줄일 수 있음</li>
 						</ul>
 
 						<pre><code class="js">
-	console.log(foo); //① undefined
-	//Why no ReferenceError?
+    function myFunction() {
+    	//var foo; -> 변수는 호이스트 되었습니다.
+        console.log(foo); //① undefined
 
-	var foo = 123;
-	console.log(foo); //② 123
+        if(true) {
+            var foo = 123;
+            console.log(foo); //② 123
+        }
+    }
+
+    myFunction();
                         </code></pre>
 					</section>
+
 
 
 					<section>
@@ -569,7 +593,7 @@
 								<th style="width:35%">Methods</th>
 							</tr>
 							<tr>
-								<td rowspan="4" style="vertical-align:middle;text-align:left;border-bottom-width:0"><img src="img/fiat.png" alt="" style="width:80%"></td>
+								<td rowspan="4" style="vertical-align:middle;text-align:left;border-bottom-width:0"><img src="img/genesis.png" alt=""></td>
 								<td>car.name = 제네시스</td>
 								<td>car.start()</td>
 							</tr>
@@ -1259,7 +1283,6 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
 	&lt;/body&gt;
                         </code></pre>
                         <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
-	//스크립트 간의 전역 변수 이름의 충돌을 미연에 방지
 	$(document).ready(function(){
 		//DOM이 완전히 로드되기 전까지 대기하다가 로드가 완료되면 실행
 	});
@@ -1453,27 +1476,32 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
 
 					<section>
 						<h2>jQuery 플러그인 (Plug-in)</h2>
-						<p>어떤 JS 라이브러리를 사용해야 할까요?</p>
+						<p>기존 기능을 확장할 수 있게 도와주는 프로그램<br>자주 사용되는 기능들을 플러그인으로 제작해서 사용</p>
+
+						<h3>어떤 플러그인 사용해야 할까요?</h3>
 						<ul>
-							<li>기존 기능을 확장할 수 있게 도와주는 프로그램</li>
-							<li>자주 사용되는 기능들을 플러그인으로 제작해서 사용</li>
-							<li>어떤 JS 라이브러리를 사용해야 할까요?</li>
-							<li>오픈소스의 중요 요소들 - 안정성, 충분한 문서(기능 서명, 실제 사용법 데모 및 사용법)</li>
-							<li>적극적으로 유지 관리, 브라우저 지원범위</li>
-							<li>Github - fork 횟수: 많은 fork(또는 star)</li>
-							<li>외부 커뮤니티: StackOverflow에 그 라이브러리에 대한 질문에 답</li>
+							<li>오픈소스의 중요 요소들 - 안정성, 충분한 문서 (기능 설명, 사용법 및 데모)</li>
+							<li>Github fork 또는 star 수</li>
+							<li>적극적인 유지 관리, 브라우저 지원범위</li>
+							<li>외부 커뮤니티 (StackOverflow)에 그 플러그인에 대한 질문, 답</li>
 						</ul>
 					</section>
 
 					<section>
 						<h2>bxSlider 플러그인 적용</h2>
+						<h3>요구기능</h3>
+						<ul>
+							<li>좌우버튼 클릭으로 이전, 다음 슬라이드 보기 </li>
+							<li>첫번째에서 이전 버튼 클릭 시 '처음 슬라이드 입니다.' 알림메세지 출력 </li>
+							<li>마지막에서 다음 버튼 클릭 시 '마지막 슬라이드 입니다.' 알림메세지 출력 </li>
+							<li>참고링크 - <a href="https://bxslider.com/examples/" target="_blank">bxSlider</a></li>
+						</ul>
 	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
 
 	                    </code></pre>
 					</section>
 
 				</section>
-
 
 
 
