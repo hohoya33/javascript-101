@@ -95,15 +95,7 @@
 					</section>
 
 					<!--
-					<section>
-						<h2>JavaScript의 문제점</h2>
-                        <ul>
-                            <li>글로벌(전역) 스코프가 쉽게 오염</li>
-                            <li>동일한 이름을 가진 변수 사용</li>
-                            <li>올바른 의존성 순서</li>
-                            <li>웹페이지가 커질수록 script 태그 수 의 증가</li>
-                        </ul>
-					</section>
+
 
 					<section>
 						<h2>새로운 자바스크립트 (ECMAScript 6)</h2>
@@ -308,7 +300,7 @@
 	var x = 1;
 	console.log(x); //1
 
-	//중복 선언
+	//중복 선언 (재정의)
 	var x = 100;
 	console.log(x); //100
                         </code></pre>
@@ -325,31 +317,25 @@
 
 
 					<section>
-						<h2>분산된 var 선언의 문제점</h2>
+						<h2>분산된 var 선언의 문제</h2>
 						<pre><code class="js">
-	//예기치 않은 결과
-    function myFunction() {
-        console.log(foo); //① undefined
-        //Why no ReferenceError?
+	function myFunction() {
+		console.log(foo); //① undefined
+		//Why no ReferenceError? 예기치 않은 결과
 
-        if(true) {
-            var foo = 123;
-            console.log(foo); //② 123
-        }
-    }
+		if(true) {
+			var foo = 123;
+			console.log(foo); //② 123
+		}
+	}
 
-    myFunction();
+	myFunction();
                         </code></pre>
 					</section>
 
 					<section>
 						<h2>변수 호이스팅 (Hoisting)</h2>
-						<p>코드를 해석하기 전 var 선언 범위를 상단으로 이동 합니다.</p>
-						<ul>
-							<li>모든 변수 선언은 각 함수(스코프)의 가장 최상위로 끌어 올려짐</li>
-							<li>첫 줄 이후 선언된 변수들은 호이스팅으로 인해 선언한 곳 이전부터 존재</li>
-						</ul>
-
+						<p>코드를 해석하기 전 var 선언 범위를 각 함수(스코프)의 상단으로 끌어 올림</p>
 						<pre><code class="js">
     function myFunction() {
     	//var foo; -> 변수는 호이스트 되었습니다.
@@ -510,7 +496,7 @@
 						 <ul>
 						 	<li>필요한 index 위치에 값 할당 (순서에 맞게 값을 할당할 필요는 없음)</li>
 						 	<li>값이 할당되지 않은 index 요소의 값은 empty</li>
-						 	<li>배열의 길이(length)는 최종 index 기준으로 산정</li>
+						 	<li>배열의 길이는 최종 index 기준으로 산정</li>
 						 </ul>
 
 						<pre><code class="js">
@@ -553,11 +539,11 @@
 					<section>
 						<h2>배열 메서드 (Array method)</h2>
 						<ul>
-							<li>join– 문자열로 리턴 (원본 변경 X)</li>
+							<li>join– 문자열로 리턴</li>
 							<li>reverse– 거꾸로 변경</li>
 							<li>sort– 배열 정렬</li>
-							<li>concat– 배열 이어 붙임 (원본 변경 X)</li>
-							<li>slice– 부분 배열 반환 (원본 변경 X)</li>
+							<li>concat– 배열 이어 붙임</li>
+							<li>slice– 부분 배열 반환</li>
 							<li>splice– 삭제/추가</li>
 							<li>push, pop– 맨뒤 추가/삭제</li>
 							<li>shift, unshift– 맨앞 추가/삭제</li>
@@ -575,8 +561,8 @@
 					<section>
 						<h2>자동차 객체</h2>
 						<ul>
-							<li>모든 자동차는 같은 속성을 가지고 있지만 그 값은 각각 다르고, 다양한 기능을 수행</li>
 							<li>현실세계의 객체를 프로그래밍적으로 접근하여 접목시킨 것을 객체라고 표현</li>
+							<li>모든 자동차는 같은 속성을 가지고 있지만 그 값은 각각 다르고, 다양한 기능을 수행</li>
 						</ul>
 
 						<!-- <ul>
@@ -630,7 +616,7 @@
 						<h2>객체 속성 (Property)</h2>
 						<ul>
 							<li>객체는 Key(속성명), Value(값)로 구성</li>
-							<li>빈 객체를 생성하여 변수와 함수를 그 안에 추가</li>
+							<li>빈 객체를 생성하고 변수와 함수를 그 안에 추가</li>
 							<li>이때 선언된 변수를 '프로퍼티', 함수는 '메서드'</li>
 						</ul>
 						<pre><code class="js">
@@ -666,14 +652,14 @@
 		}
 	};
 
-	var car2 = {
+	var newCar = {
 		name: 'BMW'
 	};
 
-	car2.getName = car.getName;
+	newCar.getName = car.getName;
 
 	car.getName(); //this는 car, this.name -> 제네시스
-	car2.getName(); //this는 car2, this.name -> BMW
+	newCar.getName(); //this는 newCar, this.name -> BMW
                         </code></pre>
 					</section>
 
@@ -713,7 +699,7 @@
 	    return a + b;
 	};
 
-	total(10, 20); //30
+	//이전과 동일하게 호출출	total(10, 20); //30
                         </code></pre>
 					</section>
 
@@ -722,7 +708,7 @@
 						<ul>
 							<li>함수선언식 - 함수 선언의 위치와 상관없이 코드 내 어느 곳에서든지 호출 가능</li>
 							<li>함수표현식 - 호이스팅된 변수는 undefined로 초기화</li>
-							<li>함수선언식은 함수호출 전 반드시 선언하여야 한다는 규칙을 무시<br>코드의 구조를 엉성하게 만들 수 있어 함수표현식 사용권고</li>
+							<li>함수선언식은 호출 전 반드시 선언해야 한다는 규칙 무시<br>코드 구조를 엉성하게 만들 수 있어 함수표현식 사용을 권고</li>
 						</ul>
 						<!--
 						함수선언식으로 정의된 함수는 자바스크립트 엔진이 스크립트가 로딩되는 시점에 바로 초기화하고 이를 VO(variable object)에 저장한다. 즉, 함수 선언, 초기화, 할당이 한번에 이루어진다. 그렇기 때문에 함수 선언의 위치와는 상관없이 소스 내 어느 곳에서든지 호출이 가능하다.
@@ -730,17 +716,18 @@
                         함수표현식은 함수선언식과는 달리 스크립트 로딩 시점에 변수 객체(VO)에 함수를 할당하지 않고 runtime에 해석되고 실행되므로 이 두가지를 구분하는 것은 중요하다.
  						-->
 						<pre><code class="js">
-	//함수선언에서의 호이스팅
-	foo(); //hello
+	//함수선언식
+	foo(); //hello  호출 먼서 하고, 함수 정의는 나중에 정의하는;;
 	function foo() {
 	    console.log('hello');
 	}
 
-	//함수표현에서의 호이스팅
+	//함수표현식
 	foo(); //TypeError: foo is not a function
 	var foo = function() {
 	    console.log('hello');
 	};
+	foo(); //hello
                         </code></pre>
 
 					</section>
@@ -752,8 +739,8 @@
 						<h2>즉시실행함수 (IIFE)</h2>
 						<ul>
 							<li>함수의 정의와 동시에 실행되는 함수</li>
-							<li>최초 한번만 호출되며 다시 호출할 수 없음</li>
-							<li>이러한 특징을 이용하여 초기화 처리에 사용, 글로벌 영역 오염방지</li>
+							<li>최초 한번만 호출, 다시 호출할 수 없음</li>
+							<li>이러한 특징을 이용해 초기화 처리에 사용, 글로벌 영역 오염방지</li>
 						</ul>
 
 						<pre><code class="js">
@@ -766,16 +753,25 @@
 
 					<section>
 						<h2>콜백 함수 (Callback function)</h2>
-						<p>어떤 이벤트가 발생한 후 수행될 함수 (이벤트 핸들러 처리)</p>
+						<p>어떤 이벤트가 발생한 후 수행될 함수 (이벤트 핸들러, 비동기 처리)</p>
 
 						<pre><code class="html">
 	&lt;button id="myButton">Click me&lt;/button&gt;
 
 	&lt;script&gt;
 		var button = document.getElementById('myButton');
-
 		button.addEventListener('click', function() {
-			console.log('button clicked!');
+			//콜백 함수
+		});
+
+		$.ajax({
+			//..
+			success: function() {
+				//콜백 함수
+			},
+			error: function() {
+				//콜백 함수
+			}
 		});
 	&lt;/script&gt;
                         </code></pre>
@@ -793,14 +789,18 @@
 					<section>
 						<h2>자바스크립트의 유효범위</h2>
 						<ul>
-							<li>전역 (Global scope) - 코드 어디에서든지 참조</li>
-							<li>지역 (Local scope or Function-level scope) - 정의된 함수 내에서만 참조</li>
+							<li>전역 (Global Scope) - 코드 어디에서든지 참조</li>
+							<li>지역 (Local Scope or Function-Level Scope) - 정의된 함수 내에서만 참조</li>
 						</ul>
 					</section>
 
 					<section>
-						<h2>전역변수 (Global scope)</h2>
-						<p>자바스크립트는 특별한 시작점이 없음</p>
+						<h2>전역변수 (Global Scope)</h2>
+						<ul>
+							<li>자바스크립트는 특별한 시작점이 없음. 코드가 나타나는 즉시 해석되고 실행</li>
+							<li>글로벌 영역에 변수를 선언하면 어디에서든지 참조할 수 있는 전역변수</li>
+						</ul>
+						<p></p>
 
 						<!--
 						글로벌 영역에 변수를 선언하면 이 변수는 어느 곳에서든지 참조할 수 있는 global scope를 갖는 전역 변수가 된다.
@@ -809,19 +809,20 @@
 
 						전역 변수의 사용은 변수명의 중복 등 여러 문제를 발생시키므로 가급적 사용을 억제하여야 한다. -->
 						<pre><code class="js">
-	//Global scope
+	//Global Scope
 	var global = 'global'; //전역변수
 
 	function foo() {
 		console.log(global);
 	}
-	foo(); //global
+	foo();
+	//global
                         </code></pre>
 					</section>
 
 					<section>
-						<h2>Non Block-level scope</h2>
-						<p>var 선언된 변수는 Block-level scope를 사용하지 않으므로 x는 전역 변수</p>
+						<h2>Non Block-Level Scope</h2>
+						<p>var 선언된 변수는 Block-Level Scope를 사용하지 않으므로 x는 전역 변수</p>
 
 						<!-- 변수 x는 코드 블럭 내에서 선언되었다.
 						하지만 자바스크립트는 block-level scope를 사용하지 않으므로
@@ -829,6 +830,7 @@
 						따라서 변수 x는 전역 변수이다. -->
 
 						<pre><code class="js">
+	//Global Scope
 	if (true) {
 		var x = 5; //전역변수
 	}
@@ -837,14 +839,14 @@
 					</section>
 
 					<section>
-						<h2>지역변수 (Function-level scope)</h2>
+						<h2>지역변수 (Function-Level Scope)</h2>
 						<ul>
 							<li>함수 내에 선언된 변수, 매개변수(parameter)는 함수 외부에서 유효하지 않음</li>
-							<li>해당 함수 내에 정의된 중첩, 자식 함수를 비롯해 함수 내부에서만 사용 가능</li>
+							<li>해당 함수 내부에서만 사용 가능</li>
 						</ul>
 						<pre><code class="js">
 	function foo() {
-		//Local scope
+		//Local Scope
 		var local = 'local'; //지역변수
 		console.log(local); //local
 	}
@@ -857,14 +859,14 @@
 					<section>
 						<h2>전역변수, 지역변수 동일한 이름 사용 시</h2>
 						<ul>
-							<li>변수명이 중복된 경우, 지역변수를 우선하여 참조 (각기 다른 변수객체가 생성)</li>
-							<li>혼란을 막기 위해 동일한 변수 네이밍은 가급적 사용하지 않는 것이 좋음</li>
+							<li>지역변수를 우선하여 참조 (각기 다른 변수 객체가 생성)</li>
+							<li>혼란을 줄 수있는 동일한 변수 네이밍은 가급적 사용하지 않는 것이 좋음</li>
 						</ul>
 						<pre><code class="js">
-	var global = 'global'; //전역변수
+	var global = 'global';
 
 	function foo() {
-		var global = 'local'; //지역변수
+		var global = 'local';
 	  	console.log(global); //local
 	}
 	foo();
@@ -874,8 +876,8 @@
 
 
 					<section>
-						<h2>스코프 체인 (Scope chain)</h2>
-						<p>변수를 찾을 때 스코프의 계층 구조에 기반한 스코프 체인을 거슬러 올라가며 추적</p>
+						<h2>스코프 체인 (Scope Chain)</h2>
+						<p>변수를 찾을 때 스코프 체인을 거슬러 올라가며 추적<br>스코프 체인에서 가장 처음 발견한 값을 반환</p>
 
 						<!--
 						func2 함수에서 참조한 변수는 지역 스코프에 없을 경우 스코프 체인에서 변수를 검색하게 되며
@@ -891,15 +893,16 @@
  						-->
 
 						<pre><code class="js">
-	//각각의 변수들은 각기 다른 스코프에서 선언
-	//스코프 체인을 검색할 때 가장 처음 발견한 값을 반환
 	var number1 = 1;
+	//③ func1 부모함수가 없기 때문에 전역 스코프에서 값을 찾음
 
-	function func1(){
+	function func1(){ //② 여기에도 없으면
 		var number2 = 2;
 
 		function func2(){
 			var number3 = 3;
+			//① 지역 스코프에서 number1, number2, number3 변수를 찾음
+			//값이 없으면 부모 함수인 func1에서 검색
 			console.log(number1 + number2 + number3); //6
 		}
 		func2();
@@ -936,13 +939,13 @@
 						클로저는 자바스크립트를 이용한 고난이도의 테크닉을 구사하는데 필수적인 개념으로 활용된다. -->
 
 						<pre><code class="js">
-	var add = function() {
+	function add() {
 		var counter = 0; //counter는 외부에서 접근할 수 없는 비공개 멤버 (private)
 
-		return function() { //공개 멤버 (반환된 객체를 통해 외부에 공개)
+		return function() { //반환된 객체를 통해 외부에 공개
 			return ++counter;
 		};
-	};
+	}
 
 	var foo = add(); //인스턴스 foo 생성
 	foo(); //1
@@ -955,16 +958,11 @@
 					</section>
 
 					<section>
-						<h2>암묵적 전역</h2>
-						<ul>
-							<li>foo() 함수 내 변수 x에 1을 할당</li>
-							<li>foo() 함수 내에는 변수 x가 선언되어 있지 않음</li>
-							<li>따라서 상위 지역(전역)에서 변수 x를 찾고 존재하지 않으면</li>
-							<li>변수 x를 암묵적으로 전역변수로 선언</li>
-						</ul>
+						<h2>var 생략 시 암묵적 전역</h2>
+						<p>전역 스코프에서 변수 x를 찾고 존재하지 않으면 변수 x를 암묵적으로 전역변수로 선언</p>
 						<pre><code class="js">
 	function foo() {
-		x = 1; //var keyword는 반드시 선언
+		x = 1;
 		var y = 2;
 	}
 	foo();
@@ -975,8 +973,11 @@
 
 					<section>
 						<h2>변수명의 중복</h2>
-						<p>파일이 분리되어 있어도 글로벌 스코프는 하나,<br>글로벌 스코프에 선언된 변수나 함수는 코드 내의 어디서든지 접근 가능</p>
-
+						<ul>
+							<li>파일이 분리되어 있어도 글로벌 스코프는 하나</li>
+							<li>글로벌 스코프에 선언된 변수나 함수는 코드 내의 어디서든지 접근 가능</li>
+							<li>반드시 var를 붙여서 변수 선언 (예상치 못한 결과)</li>
+						</ul>
 						<pre class="vertical"><code class="js">
 	//x.js
 	function foo (){
@@ -1085,86 +1086,24 @@
 
 					<section>
 						<h2>객체지향 자바스크립트</h2>
-						<p>프로토타입 기반(prototype-based) 객체지향 언어</p>
-						<p>클래스기반 언어에 익숙한 프로그래머들은 이러한 프로토타입 기반의 특성으로 인해 혼란</p>
-						<p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes" target="_blank">ES6 - Classes</a></p>
-
-						<aside class="notes">
-자바스크립트 개발을 해본 경험이 있다면 대부분 프로토타입(Prototype)에 대해서 들어봤을 것이다.
-
-프로토타입은 클래스가 없는 자바스크립트에서 객체지향적인 프로그래밍을 하기 위해서 사용하는 특징이라고 할 수 있다.
-좀 더 쉽게 말하자면 상속(Inheritance)을 구현하여 객체가 다른 객체에 속성들을 물려줄 수 있도록 하기 위해 프로토타입을 사용
-
-
-JavaScript는 클래스라는 개념이 없습니다.
-그래서 기존의 객체를 복사하여(cloning) 새로운 객체를 생성하는 프로토타입 기반의 언어입니다.
-
-프로토타입 기반 언어는 객체 원형인 프로토타입을 이용하여 새로운 객체를 만들어냅니다.
-이렇게 생성된 객체 역시 또 다른 객체의 원형이 될 수 있습니다.
-프로토타입은 객체를 확장하고 객체 지향적인 프로그래밍을 할 수 있게 해줍니다.
-
-
-
-
-4. 코드의 재사용
-코드의 재사용 하면 떠오르는 단어는 바로 상속입니다.
-클래스라는 개념이 있는 Java에서는 중복된 코드를 상속받아 코드 재활용을 할 수 있습니다.
-하지만 JavaScript에서는 클래스가 없는, 프로토타입 기반 언어입니다.
- 그래서 프로토타입을 이용하여 코드 재사용을 할 수 있습니다.
-
-
-자바스크립트의 모든 객체는 자신의 부모 역할을 하는 객체와 연결되어 있다.
-그리고 이것은 마치 객체 지향의 상속 개념과 같이 부모 객체의 프로퍼티 또는 메서드를 상속받아 사용할 수 있게 한다. 이러한 부모 객체를 Prototype(프로토타입) 이라 한다.
-
-Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, undefined 빼고는
-모두 객체입니다.
-사용자가 정의한 함수도 객체이고, new라는 연산자를 통해 생성된 것도 객체입니다.
-
-                        </aside>
-
+						<ul>
+							<li>JavaScript는 클래스라는 개념이 없음</li>
+							<li>프로토타입 기반(prototype-based)의 객체지향 언어</li>
+							<li>객체가 다른 객체에 속성들을 물려줄 수 있도록 하기 위해 프로토타입 사용<br>(코드 재활용)</li>
+						</ul>
 					</section>
 
-					<section>
-						<pre><code class="js">
-	var Person = (function() {
-		//생성자 함수 Constructor
-		function Person(name) {
-			this._name = name;
-		}
-		//메서드
-		//sayHi()함수를 하나만 만들어
-		//객체의 인스턴스들이 재사용을 위해서 프로토타입 안에 정의
-		Person.prototype.sayHi = function () {
-			console.log('Hi! ' + this._name);
-		};
-		//return constructor
-		return Person;
-	}());
-
-	var me = new Person('Kim'); //new 연산자를 통해 인스턴스를 me 생성
-	me.sayHi(); //메서드 호출 Hi! Kim
-
-	var you = new Person('Lee'); //인스턴스 you 생성
-	you.sayHi(); //Hi! Lee
-	                    </code></pre>
-					</section>
 
                     <section>
                         <h2>JavaScript 프로토타입 (Prototype)</h2>
-                        <p>기본 자료형 (Boolean, null, undefined, Number, String)을 제외한 모든 값은 객체(Object)</p>
-                        <p>자바스크립트의 모든 객체는 자신의 부모 역할을 하는 객체와 연결<br>부모 객체의 프로퍼티, 메소드를 상속받아 사용 가능</p>
-                        <p>프로토타입은 자신이 다른 객체의 원형이 되는 객체</p>
-                    </section>
+                        <p>자바스크립트의 모든 객체는 자신의 부모 역할을 하는 객체와 연결 (__proto__ 숨은링크)<br>부모 객체의 프로퍼티, 메소드를 상속받아 사용 가능</p>
+                        <p>자기 자신을 생성하기 위해 사용된 객체 원형을 프로토타입</p>
 
-                    <section>
-                        <p>모든 객체의 프로토타입은 객체를 생성할 때 결정</p>
-                        <ul>
-                            <li>Object.prototype</li>
-                            <li>Array.prototype</li>
-                            <li>Function.prototype</li>
-                        </ul>
+                        <!-- <ul>
+                        	<li>__proto__ (숨은링크) - 상위에서 물려받은 객체의 프로토타입에 대한 정보</li>
+                        	<li>prototype 속성 - 자신을 원형으로 만들어질 새로운 객체들. 즉 하위로 물려줄 연결에 대한 속성</li>
+                        </ul> -->
                     </section>
-
 
 
                     <section>
@@ -1175,14 +1114,13 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
 
 
                     <section>
-                        <p>student 객체는 __proto__ ( [[Prototype]] )라는 숨겨진 내부 프로퍼티에<br>자신의 부모 객체인 Object.prototype을 연결(Link)</p>
+                        <p>student 객체는 __proto__ 라는 숨겨진 내부 프로퍼티에<br>자신의 부모 Object.prototype 객체와 연결</p>
                         <pre><code>
     var student = {
         name: 'Kim',
         score: 90
     };
     console.log(student.valueOf()); //Object {name: "Kim", score: 90}
-    //hasOwnProperty(), valueOf(), toString() 등 마치 자신의 프로퍼티인 것처럼 상속받아 사용
                         </code></pre>
 
                         <img src="img/proto.png" alt="">
@@ -1208,13 +1146,12 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
 
 
                     <section>
-                        <h2>Array.prototye</h2>
-                        <p>배열의 부모역할을 하는 객체는 Array.prototype</p>
-                        <p>모든 배열에 존재하는 length, push(), pop().. 등과 같은 메서드들은<br> Array.prototype 객체의 프로퍼티</p>
-
+                        <h2>Array.prototype</h2>
+                        <p>배열 역시 __proto__ 라는 숨겨진 내부 프로퍼티에 자신의 부모 Array.prototype 객체와 연결<br>모든 배열에 존재하는 length, push(), pop().. 등과 같은 메서드들을 상속</p>
+                        <p></p>
                         <pre><code>
     var myArray = [];
-    console.log(myArray);
+    console.log(myArray.length); //0
                         </code></pre>
 
                         <img src="img/proto_array.png" alt="">
@@ -1226,23 +1163,25 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
                     </section>
 
                     <section>
-                        <h2>Array.prototye</h2>
+                        <h2>Array.prototype</h2>
                         <img src="img/proto_object2.png" alt="" style="width:70%">
                     </section>
 
                     <section>
-
-                        <h2>Function.prototye</h2>
-                        <p>함수의 부모 객체는 Function.prototype</p>
+                        <h2>Function.prototype</h2>
+                        <p>__proto__ 라는 숨겨진 내부 프로퍼티에 자신의 부모 Function.prototype 객체와 연결<br>함수에는 prototype 속성을 이용해 또 다른 객체의 원형이 될 수 있음</p>
                         <pre><code>
-    function sum(x, y) {
-    	//...
-    }
+    function sum(x, y) { ... }
                         </code></pre>
 
                         <img src="img/proto_function.png" alt="">
 
                         <aside class="notes">
+						그래서 기존의 객체를 복사하여(cloning) 새로운 객체를 생성하는 프로토타입 기반의 언어입니다.
+						프로토타입 기반 언어는 객체 원형인 프로토타입을 이용하여 새로운 객체를 만들어냅니다.
+						이렇게 생성된 객체 역시 또 다른 객체의 원형이 될 수 있습니다.
+						프로토타입은 객체를 확장하고 객체 지향적인 프로그래밍을 할 수 있게 해줍니다.
+
                         사실 function 함수엔 Prototype 객체를 가르키는 prototype 이란 프로퍼티가 하나 존재합니다.
                         이 Prototype 객체에 공유되어  있는 프로퍼티와 메소드가 객체 생성시 해당 생성자 function 으로
                         생성한 모든 인스턴스에서 공유됩니다.
@@ -1250,10 +1189,36 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
                     </section>
 
                     <section>
-                        <h2>Function.prototye</h2>
-                        <img src="img/proto_object3.png" alt="" style="width:90%">
-                    </section>
+                    	<p>프로토타입은 객체를 확장하고 객체 지향적인 프로그래밍이 가능</p>
+						<pre><code class="js">
+	var Person = (function() {
+		//생성자 함수 Constructor
+		function Person(name) {
+			this._name = name;
+		}
 
+		//sayHi()함수를 하나만 만들어
+		//객체의 인스턴스들이 재사용을 위해서 프로토타입 안에 정의
+		Person.prototype.sayHi = function () {
+			console.log('Hi! ' + this._name);
+		};
+
+		return Person;
+	}());
+
+	var me = new Person('Kim'); //new 연산자를 통해 인스턴스를 me 생성
+	me.sayHi(); //Hi! Kim
+
+	var you = new Person('Lee'); //인스턴스 you 생성
+	you.sayHi(); //Hi! Lee
+	                    </code></pre>
+					</section>
+
+                    <section>
+                        <h2>Function.prototype</h2>
+                        <img src="img/proto_object3.png" alt="" style="width:90%">
+                        <p>자바스크립트의 모든 객체는 Object.prototype을 기반으로 확장<br>이런 구조로 객체를 확장하는 방식을 프로토타입 기반 프로그래밍</p>
+                    </section>
 				</section>
 
 
@@ -1266,8 +1231,8 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
 					<section>
 						<h2><img src="img/jquery_logo.png" alt="" style="width:40%"></h2>
 						<ul>
-							<li>자바스크립트의 생산성을 향상시켜주는 자바스크립트 라이브러리</li>
-							<li>자바스크립트 코드를 단순하게 유지하면서 크로스 브라우징 이슈를 보다 쉽게 처리</li>
+							<li>자바스크립트의 생산성을 향상 (자바스크립트 라이브러리)</li>
+							<li>자바스크립트 코드를 단순하게 유지, 크로스 브라우징 이슈를 쉽게 처리</li>
 							<li>HTML 문서(DOM) 탐색, 조작, 이벤트 핸들링, 애니메이션, Ajax</li>
 						</ul>
 					</section>
@@ -1314,7 +1279,6 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
                         <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
 	$(function(){
 		console.log($('li'));
-		// [li, li, li.howdy, prevObject: n.fn.init(1), context: document, selector: "li"]
 		$('li').text('SSG');
 	});
                         </code></pre>
@@ -1349,32 +1313,12 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
 					</section>
 
 					<section>
-						<h2>자식 선택자 (Child Selector)</h2>
+						<h2>DOM 탐색(Traversing)</h2>
 						<ul>
 							<li>자신의 1 level 상위에 속하는 요소를 부모 요소</li>
-							<li>1 level 하위에 속하는 요소를 자식 요소</li>
+							<li>1 level 하위에 속하는 요소를 자식 요소</li></li>
+							<li>특정 id를 기준으로 자식 element 목록을 탐색할 때는 .find()를 사용</li>
 						</ul>
-						<pre><em class="file_name"><i class="devicons devicons-html5"></i>&nbsp;index.html</em><code class="html">
-	&lt;ul id="navigation"&gt;
-		&lt;li&gt;신세계몰&lt;/li&gt;
-		&lt;li&gt;이마트몰
-			&lt;ul id="obanjang"&gt;
-				&lt;li&gt;오반장&lt;/li&gt;
-			&lt;/ul&gt;
-		&lt;/li&gt;
-		&lt;li class="howdy"&gt;하우디&lt;/li&gt;
-	&lt;/ul&gt;
-                        </code></pre>
-
-	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
-	$('#navigation > li').text('SSG').css('color', 'red');
-	                    </code></pre>
-					</section>
-
-
-					<section>
-						<h2>DOM 탐색(Traversing)</h2>
-						<p>특정 id를 기준으로 자식 element 목록을 탐색할 때는 .find()를 사용</p>
 
 						<pre><em class="file_name"><i class="devicons devicons-html5"></i>&nbsp;index.html</em><code class="html">
 	&lt;ul id="navigation"&gt;
@@ -1385,8 +1329,7 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
                         </code></pre>
 
 	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
-	var elem1 = $('#navigation').find('li'); //Traversing
-	var elem2 = $('#navigation').find('.howdy');
+	$('#navigation').find('.howdy').css('color', 'red');
 	                    </code></pre>
 					</section>
 
@@ -1438,7 +1381,7 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
 
 					<section>
 						<h2>Event</h2>
-						<p>이벤트를 바인딩하고 해당 이벤트가 발생했을 때 실행될 콜백 함수를 지정</p>
+						<p>이벤트를 바인딩하고 해당 이벤트가 발생했을 때 실행될 콜백 함수를 지정<br>버튼을 클릭하면 가격 보기, 버튼 삭제하기</p>
 
 						<pre><em class="file_name"><i class="devicons devicons-html5"></i>&nbsp;index.html</em><code class="html">
 	&lt;div class=&quot;item&quot;&gt;
@@ -1458,8 +1401,8 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
 
 					<section>
 						<ul>
-							<li>버튼 요소가 여러개 있을 경우, 모든 버튼요소 제거, 가격 변경</li>
-							<li>이벤트가 발생한 버튼만 제거, 가격이 표시 되도록 수정</li>
+							<li>상품이 여러개 있을 경우, 모든 버튼요소가 제거, 가격이 변경</li>
+							<li>이벤트가 발생한 상품 버튼만 제거되고 가격이 표시 되도록 수정</li>
 						</ul>
 
 	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
@@ -1477,27 +1420,54 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
 					<section>
 						<h2>jQuery 플러그인 (Plug-in)</h2>
 						<p>기존 기능을 확장할 수 있게 도와주는 프로그램<br>자주 사용되는 기능들을 플러그인으로 제작해서 사용</p>
+					</section>
 
-						<h3>어떤 플러그인 사용해야 할까요?</h3>
+					<section>
+						<h2>어떤 플러그인 사용해야 할까요?</h2>
 						<ul>
-							<li>오픈소스의 중요 요소들 - 안정성, 충분한 문서 (기능 설명, 사용법 및 데모)</li>
-							<li>Github fork 또는 star 수</li>
-							<li>적극적인 유지 관리, 브라우저 지원범위</li>
+							<li>오픈소스의 중요 요소들 - 안정성, 충분한 문서 (기능 설명, 데모, 브라우저 지원범위)</li>
+							<li>Github star 또는 fork 수</li>
+							<li>적극적인 유지 관리</li>
 							<li>외부 커뮤니티 (StackOverflow)에 그 플러그인에 대한 질문, 답</li>
 						</ul>
 					</section>
 
 					<section>
 						<h2>bxSlider 플러그인 적용</h2>
-						<h3>요구기능</h3>
 						<ul>
-							<li>좌우버튼 클릭으로 이전, 다음 슬라이드 보기 </li>
-							<li>첫번째에서 이전 버튼 클릭 시 '처음 슬라이드 입니다.' 알림메세지 출력 </li>
-							<li>마지막에서 다음 버튼 클릭 시 '마지막 슬라이드 입니다.' 알림메세지 출력 </li>
-							<li>참고링크 - <a href="https://bxslider.com/examples/" target="_blank">bxSlider</a></li>
+							<li>가로 세로 이미지 슬라이드 적용</li>
+							<li>좌우버튼 클릭으로 이전, 다음 슬라이드 보기</li>
+							<li>첫번째에서 이전 버튼 클릭 시 '처음 슬라이드 입니다.' 알림메세지 출력</li>
+							<li>마지막에서 다음 버튼 클릭 시 '마지막 슬라이드 입니다.' 알림메세지 출력</li>
+							<li>참고링크 - <a href="https://bxslider.com/options/" target="_blank">bxSlider Options</a></li>
 						</ul>
-	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
+					</section>
 
+<!--
+					<section>
+						<pre><em class="file_name"><i class="devicons devicons-html5"></i>&nbsp;index.html</em><code class="html">
+	&lt;div class=&quot;item&quot;&gt;
+		&lt;h3 class=&quot;name&quot;&gt;미네랄 워터 생수&lt;/h3&gt;
+		&lt;button&gt;가격보기&lt;/button&gt;
+	&lt;/div&gt;
+                        </code></pre>
+					</section>
+
+ -->
+					<section>
+	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
+	//가로 슬라이드
+	var sliderH = $("#_mflickH .flick-container").bxSlider();
+
+	mode: 'horizontal', //가로모드 'vertical',
+	controls: false, //슬라이드 컨트롤 사용 여부
+	pager: false, //슬라이드 페이지
+	infiniteLoop: false //반복재생
+
+	sliderH.getSlideCount(); //전체 슬라이드
+	sliderH.getCurrentSlide() //현재 활성화 슬라이드
+	sliderH.goToPrevSlide() //이전 슬라이드
+	sliderH.goToNextSlide() //다음 슬라이드
 	                    </code></pre>
 					</section>
 
@@ -1509,8 +1479,7 @@ Javascript에서는  boolean, number, string, 그리고 특별한 값인 null, u
 
 
 				<section>
-					<div><img src="img/dog.gif" alt=""></div>
-					<h1>감사합니다.</h1>
+					<h1>감사합니다.&nbsp;👋</h1>
 				</section>
 			</div>
 		</div>
