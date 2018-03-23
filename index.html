@@ -538,14 +538,14 @@
 					<section>
 						<h2>배열 메서드 (Array method)</h2>
 						<ul>
-							<li>join– 문자열로 리턴</li>
-							<li>reverse– 거꾸로 변경</li>
-							<li>sort– 배열 정렬</li>
-							<li>concat– 배열 이어 붙임</li>
-							<li>slice– 부분 배열 반환</li>
-							<li>splice– 삭제/추가</li>
-							<li>push, pop– 맨뒤 추가/삭제</li>
-							<li>shift, unshift– 맨앞 추가/삭제</li>
+							<li>join – 문자열로 리턴</li>
+							<li>reverse – 거꾸로 변경</li>
+							<li>sort – 배열 정렬</li>
+							<li>concat – 배열 이어 붙임</li>
+							<li>slice – 부분 배열 반환</li>
+							<li>splice – 삭제/추가</li>
+							<li>push, pop – 맨뒤 추가/삭제</li>
+							<li>shift, unshift – 맨앞 추가/삭제</li>
 						</ul>
 					</section>
 				</section>
@@ -1035,7 +1035,9 @@
 네임스페이스를 생성하거나 프로퍼티를 추가하기 전에 먼저 이미 존재하는지 여부를 확인하는 것이 최선 -->
 
 						<pre><code class="js">
-	if(typeof MYAPP === 'undefined') { //네임스페이스 간의 충돌검사
+	//기존에 동일한 이름을 갖는 네임스페이스가 존재하는지 검사
+	//동일한 이름을 갖는 네임스페이스가 없을 경우에만 네임스페이스를 정의
+	if(typeof MYAPP === 'undefined') {
 		var MYAPP = {};
 	}
 
@@ -1169,7 +1171,8 @@
 
                     <section>
                         <h2>Function.prototype</h2>
-                        <p>__proto__ 라는 숨겨진 내부 프로퍼티에 자신의 부모 Function.prototype 객체와 연결<br>함수에는 prototype 속성을 이용해 또 다른 객체의 원형이 될 수 있음</p>
+                        <p>__proto__ 라는 숨겨진 내부 프로퍼티에 자신의 부모 Function.prototype 객체와 연결<br>
+                        함수는 prototype 속성을 이용해 또 다른 객체의 원형이 될 수 있음</p>
                         <pre><code>
     function sum(x, y) { ... }
                         </code></pre>
@@ -1465,7 +1468,12 @@
 					<section>
 						<h2>bxSlider 적용</h2>
 						<pre><em class="file_name"><i class="devicons devicons-html5"></i>&nbsp;index.html</em><code class="html">
-	&lt;script src=&quot;http://static.ssgcdn.com/ui/ssg/js/lib/jquery.bxslider.min.js&quot;&gt;&lt;/script&gt;
+	&lt;body&gt;
+		//...
+		&lt;script scr=&quot;http://static.ssgcdn.com/ui/ssg/js/lib/jquery-1.9.1.min.js&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;http://static.ssgcdn.com/ui/ssg/js/lib/jquery.bxslider.min.js&quot;&gt;&lt;/script&gt;
+	&lt;/body&gt;
+
                         </code></pre>
 
 	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
@@ -1478,6 +1486,7 @@
 
 					<section>
 						<h2>bxSlider Options</h2>
+						<p><a href="https://bxslider.com/options/" target="_blank">bxSlider Options 보기</a></p>
 	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
 	var welHorizontal = $('#horizontal');
 
