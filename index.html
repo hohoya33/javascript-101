@@ -74,8 +74,9 @@
 					</section>
 					<section>
 						<h2>JavaScript?</h2>
-						<!-- <div><img src="img/html-css-javascript.png " alt="" style="width:30%;"></div> -->
+
 						<div><img src="img/java_vs_js.png " alt="" style="width:30%"></div>
+						<div><img src="img/html-css-javascript.png " alt="" style="width:32%;"></div>
 						<ul style="margin-top:20px">
 							<li>HTML과 CSS는 정적인 언어</li>
 							<li>JavaScript는 HTML과 CSS로 만들어진 웹페이지를 동적으로 변경해주는 언어</li>
@@ -95,8 +96,6 @@
 					</section>
 
 					<!--
-
-
 					<section>
 						<h2>새로운 자바스크립트 (ECMAScript 6)</h2>
 						<div style="display:flex;align-items:center;justify-content:center;margin:50px 0">
@@ -124,7 +123,7 @@
 						</div> -->
 						<ul>
 							<li>1995년 브렌던 아이크(Brendan Eich) 넷스케이프 지원<br>모카 -> 라이브스크립트 -> 자바스크립트</li>
-							<li>국제 표준화 단체인 ECMA International에서 JavaScript 표준화 진행</li>
+							<li>국제 표준화 단체인 ECMA International에서 표준화 진행</li>
 							<li>크로스 브라우징, 보안 취약점 문제</li>
 							<li>전문적이지 못한 인식 (Copy & Paste)</li>
 						</ul>
@@ -1433,41 +1432,160 @@
 					</section>
 
 					<section>
-						<h2>bxSlider 플러그인 적용</h2>
+						<h2>가로, 세로형 이미지 슬라이드 제작</h2>
 						<ul>
-							<li>가로 세로 이미지 슬라이드 적용</li>
+							<li><a href="https://github.com/stevenwanderski/bxslider-4" target="_blank">bxSlider</a> 플러그인 적용</li>
 							<li>좌우버튼 클릭으로 이전, 다음 슬라이드 보기</li>
 							<li>첫번째에서 이전 버튼 클릭 시 '처음 슬라이드 입니다.' 알림메세지 출력</li>
 							<li>마지막에서 다음 버튼 클릭 시 '마지막 슬라이드 입니다.' 알림메세지 출력</li>
-							<li>참고링크 - <a href="https://bxslider.com/options/" target="_blank">bxSlider Options</a></li>
 						</ul>
 					</section>
 
-<!--
 					<section>
+						<h2>가로형 슬라이드</h2>
 						<pre><em class="file_name"><i class="devicons devicons-html5"></i>&nbsp;index.html</em><code class="html">
-	&lt;div class=&quot;item&quot;&gt;
-		&lt;h3 class=&quot;name&quot;&gt;미네랄 워터 생수&lt;/h3&gt;
-		&lt;button&gt;가격보기&lt;/button&gt;
+	&lt;div id=&quot;horizontal&quot; class=&quot;slide_wrapper&quot;&gt;
+		&lt;div class=&quot;slide_container&quot;&gt;
+			&lt;div class=&quot;slide&quot;&gt;&lt;img src=&quot;http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_01.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+			&lt;div class=&quot;slide&quot;&gt;&lt;img src=&quot;http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_02.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+			&lt;div class=&quot;slide&quot;&gt;&lt;img src=&quot;http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_03.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+			&lt;div class=&quot;slide&quot;&gt;&lt;img src=&quot;http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_04.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+			&lt;div class=&quot;slide&quot;&gt;&lt;img src=&quot;http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_05.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+			&lt;div class=&quot;slide&quot;&gt;&lt;img src=&quot;http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_06.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+			&lt;div class=&quot;slide&quot;&gt;&lt;img src=&quot;http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_07.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;button class=&quot;button_prev slide_button&quot;&gt;&lt;span class=&quot;blind&quot;&gt;이전&lt;/span&gt;&lt;/button&gt;
+		&lt;button class=&quot;button_next slide_button&quot;&gt;&lt;span class=&quot;blind&quot;&gt;다음&lt;/span&gt;&lt;/button&gt;
 	&lt;/div&gt;
                         </code></pre>
 					</section>
 
- -->
+
+					<section>
+						<h2>bxSlider 적용</h2>
+						<pre><em class="file_name"><i class="devicons devicons-html5"></i>&nbsp;index.html</em><code class="html">
+	&lt;script src=&quot;http://static.ssgcdn.com/ui/ssg/js/lib/jquery.bxslider.min.js&quot;&gt;&lt;/script&gt;
+                        </code></pre>
+
+	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
+	var welHorizontal = $('#horizontal');
+
+	welHorizontal.find('.slide_container').bxSlider();
+	                    </code></pre>
+					</section>
+
+
+					<section>
+						<h2>bxSlider Options</h2>
+	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
+	var welHorizontal = $('#horizontal');
+
+	welHorizontal.find('.slide_container').bxSlider({
+		mode: 'horizontal', //슬라이드 모드
+		controls: false, //슬라이드 컨트롤 사용 여부
+		pager: false, //슬라이드 페이지
+		infiniteLoop: false //반복 재생
+	});
+	                    </code></pre>
+					</section>
+
+
+					<section>
+						<h2>이전, 다음 버튼 이벤트 핸들러</h2>
+	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
+	var welHorizontal = $('#horizontal'),
+		welHorizPrev = welHorizontal.find('.button_prev'),
+		welHorizNext = welHorizontal.find('.button_next');
+
+	welHorizPrev.on('click', function() {
+		alert('처음 슬라이드 입니다.');
+	});
+
+	welHorizNext.on('click', function() {
+		alert('마지막 슬라이드 입니다.');
+	});
+	                    </code></pre>
+					</section>
+
+
+					<section>
+						<h2>bxSlider Public Methods</h2>
+	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
+	var oHorizontal = welHorizontal.find('.slide_container').bxSlider({
+		mode: 'horizontal',
+		controls: false,
+		pager: false,
+		infiniteLoop: false
+	});
+
+	oHorizontal.getSlideCount() //전체 슬라이드
+	oHorizontal.getCurrentSlide() //현재 활성화 슬라이드
+	oHorizontal.goToPrevSlide() //이전 슬라이드
+	oHorizontal.goToNextSlide() //다음 슬라이드
+	                    </code></pre>
+					</section>
+
 					<section>
 	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
-	//가로 슬라이드
-	var sliderH = $("#_mflickH .flick-container").bxSlider();
+	welHorizPrev.on('click', function() {
+		var curSlideIndex = oHorizontal.getCurrentSlide();
 
-	mode: 'horizontal', //가로모드 'vertical',
-	controls: false, //슬라이드 컨트롤 사용 여부
-	pager: false, //슬라이드 페이지
-	infiniteLoop: false //반복재생
+		if(curSlideIndex === 0){
+			alert('처음 슬라이드 입니다.');
+		} else {
+			oHorizontal.goToPrevSlide();
+		}
+	});
+	welHorizNext.on('click', function() {
+		var curSlideIndex = oHorizontal.getCurrentSlide(),
+			lastSlideIndex = oHorizontal.getSlideCount() - 1;
 
-	sliderH.getSlideCount(); //전체 슬라이드
-	sliderH.getCurrentSlide() //현재 활성화 슬라이드
-	sliderH.goToPrevSlide() //이전 슬라이드
-	sliderH.goToNextSlide() //다음 슬라이드
+		if(curSlideIndex === lastSlideIndex){
+			alert('마지막 슬라이드 입니다.');
+		} else {
+			oHorizontal.goToNextSlide();
+		}
+	});
+	                    </code></pre>
+					</section>
+
+					<section>
+						<h2>세로형 슬라이드 bxSlider 적용</h2>
+	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
+	var welVertical = $('#vertical'),
+		welVerticalPrev = welVertical.find('.button_top'),
+		welVerticalNext = welVertical.find('.button_bottom');
+
+	var oVertical = welVertical.find('.slide_container').bxSlider({
+		mode: 'vertical',
+		controls: false,
+		pager: false,
+		infiniteLoop: false
+	});
+	                    </code></pre>
+					</section>
+
+					<section>
+	                    <pre><em class="file_name"><i class="devicons devicons-javascript"></i>&nbsp;app.js</em><code class="js">
+	welVerticalPrev.on('click', function() {
+		var curSlideIndex = oVertical.getCurrentSlide();
+
+		if(curSlideIndex === 0){
+			alert('처음 슬라이드 입니다.');
+		} else {
+			oVertical.goToPrevSlide();
+		}
+	});
+	welVerticalNext.on('click', function() {
+		var curSlideIndex = oVertical.getCurrentSlide(),
+			lastSlideIndex = oVertical.getSlideCount() - 1;
+
+		if(curSlideIndex === lastSlideIndex){
+			alert('마지막 슬라이드 입니다.');
+		} else {
+			oVertical.goToNextSlide();
+		}
+	});
 	                    </code></pre>
 					</section>
 
@@ -1475,11 +1593,8 @@
 
 
 
-
-
-
 				<section>
-					<h1>감사합니다.&nbsp;👋</h1>
+					<h1>감사합니다.</h1>
 				</section>
 			</div>
 		</div>

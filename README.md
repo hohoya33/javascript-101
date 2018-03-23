@@ -648,6 +648,121 @@ jQuery 라이브러리의 목표는 웹 브라우저 마다 다르게 작성해�
 
 
 
+```css
+.blind{overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:999em}
+.tit{text-align:center}
+.slide_wrapper {position:relative;max-width:376px;margin:0 auto;height:609px}
+.slide_wrapper .slide_container .slide{float:left;width:376px;height:609px}
+.slide_wrapper .bx-controls{position:absolute;left:0;bottom:0;text-align:center}
+.slide_wrapper .bx-controls .bx-pager-item{display:inline-block;padding:0 5px}
+.slide_wrapper .bx-controls a{color:#fff}
+.slide_wrapper .slide_button{position:absolute;z-index:2010;width:100px;height:100px;background-color:transparent;background-position:center center;background-repeat:no-repeat;overflow:visible;border:0 none;border-radius:0;cursor:pointer}
+.slide_wrapper .button_prev{top:50%;left:0;margin-top:-50px;background-image:url(http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_btn_left.png)}
+.slide_wrapper .button_next{top:50%;right:0;margin-top:-50px;background-image:url(http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_btn_right.png)}
+.slide_wrapper .button_top{top:0;left:50%;margin-left:-50px;background-image:url(http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_btn_top.png)}
+.slide_wrapper .button_bottom{bottom:0;left:50%;margin-left:-50px;background-image:url(http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_btn_bottom.png)}
+```
+
+```html
+<h3 class="tit">가로형 슬라이드</h3>
+<div id="horizontal" class="slide_wrapper">
+    <div class="slide_container">
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_01.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_02.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_03.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_04.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_05.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_06.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_07.jpg" alt=""></div>
+    </div>
+    <button class="button_prev slide_button"><span class="blind">이전</span></button>
+    <button class="button_next slide_button"><span class="blind">다음</span></button>
+</div>
+
+
+<h3 class="tit">세로형 슬라이드</h3>
+<div id="vertical" class="slide_wrapper">
+    <div class="slide_container">
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_01.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_02.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_03.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_04.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_05.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_06.jpg" alt=""></div>
+        <div class="slide"><img src="http://static.ssgcdn.com/ui/sm/img/promotion/2016/160104_shopat/mobile/m_sa_07.jpg" alt=""></div>
+    </div>
+    <button class="button_top slide_button"><span class="blind">이전</span></button>
+    <button class="button_bottom slide_button"><span class="blind">다음</span></button>
+</div>
+```
+
+
+```js
+    var welHorizontal = $('#horizontal');
+    var welHorizPrev = welHorizontal.find('.button_prev');
+    var welHorizNext = welHorizontal.find('.button_next');
+    var oHorizontal = welHorizontal.find('.slide_container').bxSlider({
+        mode: 'horizontal',
+        controls: false,
+        pager: false,
+        infiniteLoop: false
+    });
+
+    welHorizPrev.on('click', function() {
+        var curSlideIndex = oHorizontal.getCurrentSlide();
+
+        if(curSlideIndex === 0){
+            alert('처음 슬라이드 입니다.');
+        } else {
+            oHorizontal.goToPrevSlide();
+        }
+    });
+
+    welHorizNext.on('click', function() {
+        var curSlideIndex = oHorizontal.getCurrentSlide(),
+            lastSlideIndex = oHorizontal.getSlideCount() - 1;
+
+        if(curSlideIndex === lastSlideIndex){
+            alert('마지막 슬라이드 입니다.');
+        } else {
+            oHorizontal.goToNextSlide();
+        }
+    });
+
+
+    var welVertical = $('#vertical');
+    var welVerticalPrev = welVertical.find('.button_top');
+    var welVerticalNext = welVertical.find('.button_bottom');
+    var oVertical = welVertical.find('.slide_container').bxSlider({
+        mode: 'vertical',
+        controls: false,
+        pager: false,
+        infiniteLoop: false
+    });
+
+    welVerticalPrev.on('click', function() {
+        var curSlideIndex = oVertical.getCurrentSlide();
+
+        if(curSlideIndex === 0){
+            alert('처음 슬라이드 입니다.');
+        } else {
+            oVertical.goToPrevSlide();
+        }
+    });
+
+    welVerticalNext.on('click', function() {
+        var curSlideIndex = oVertical.getCurrentSlide(),
+            lastSlideIndex = oVertical.getSlideCount() - 1;
+
+        if(curSlideIndex === lastSlideIndex){
+            alert('마지막 슬라이드 입니다.');
+        } else {
+            oVertical.goToNextSlide();
+        }
+    });
+```
+
+
 
 
 
