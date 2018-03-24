@@ -50,7 +50,7 @@ JavasSript 101 자바스크립트 기본 자료 정리
 * 네이티브 앱과 유사한 사용자 경험 제공
 
 ## PWA (Progressive Web Apps)
-<img src="img/unnamed.gif" alt="" width="50%">
+<img src="img/unnamed.gif" alt="" width="40%">
 
 최적화된 웹 성능에 모바일의 Native 기능을 결합한 최신 웹 앱
 * 모바일 앱의 단점 (개발, 빌드, 배포, 검색 다운로드, 설치)
@@ -406,7 +406,7 @@ console.log(isSomeOdd); //true
         <th width="35%">Methods</th>
     </tr>
     <tr>
-        <td rowspan="4"><img src="img/genesis.png" alt="" width="50%"></td>
+        <td rowspan="4"><img src="img/genesis.png" alt="" width="100%"></td>
         <td>car.name = 제네시스</td>
         <td>car.start()</td>
     </tr>
@@ -766,7 +766,7 @@ console.log(student.valueOf()); //Object {name: "Kim", score: 90}
 
 student 객체의 __ proto __ 프로퍼티가 가리키는 객체가 바로 Object.prototype 객체이며 hasOwnProperty(), toString(), valueOf() 등과 같은 모든 객체에서 호출 가능한 자바스크립트 기본 내장 메서드가 포함되어 있다.
 
-<div style="background-color:#1c1e20"><img src="img/proto_object.png" alt="" width="80%"></div>
+<img src="img/proto_object.png" alt="" width="80%" bgcolor="#1c1e20">
 
 ## Array.prototype
 배열 역시 __ proto __ 라는 숨겨진 내부 프로퍼티에 자신의 부모 Array.prototype 객체와 연결<br>모든 배열에 존재하는 length, push(), pop().. 등과 같은 메서드들을 상속
@@ -777,7 +777,7 @@ console.log(myArray.length); //0
 
 <img src="img/proto_array.png" alt="">
 
-<div style="background-color:#1c1e20"><img src="img/proto_object2.png" alt="" width="80%"></div>
+<img src="img/proto_object2.png" alt="" width="80%" bgcolor="#1c1e20">
 
 
 ## Function.prototype
