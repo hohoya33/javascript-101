@@ -41,7 +41,7 @@ JavasSript 101 자바스크립트 기본 자료 정리
 * 모바일 앱(iOS & Android), 데스크탑 앱
 
 ## SPA (Single Page Application)
-<img src="img/react_angular_vue.png" alt="" style="width:40%">
+<img src="img/react_angular_vue.png" alt="" width="40%">
 
 * PC -> 모바일 사용자의 증가 (트래픽 감소와 속도, 사용성, 반응성 이슈)
 * 프론트엔드 프레임워크의 강화 (React, Angular, Vue)
@@ -50,7 +50,7 @@ JavasSript 101 자바스크립트 기본 자료 정리
 * 네이티브 앱과 유사한 사용자 경험 제공
 
 ## PWA (Progressive Web Apps)
-<img src="img/unnamed.gif" alt="" style="width:50%">
+<img src="img/unnamed.gif" alt="" width="50%">
 
 최적화된 웹 성능에 모바일의 Native 기능을 결합한 최신 웹 앱
 * 모바일 앱의 단점 (개발, 빌드, 배포, 검색 다운로드, 설치)
@@ -95,13 +95,13 @@ JavasSript 101 자바스크립트 기본 자료 정리
 
 ## script 태그 속성
 script src="script.js"
-<img src="img/Normal-Execution.png " alt="" style="width:90%">
+<img src="img/Normal-Execution.png " alt="" width="90%">
 
 script **async** src="script.js"
-<img src="img/Async-Execution.png " alt="" style="width:90%">
+<img src="img/Async-Execution.png " alt="" width="90%">
 
 script **defer** src="script.js"
-<img src="img/Defer-Execution.png " alt="" style="width:90%">
+<img src="img/Defer-Execution.png " alt="" width="90%">
 
 
 # 변수 (Variable)
@@ -401,12 +401,12 @@ console.log(isSomeOdd); //true
 * 모든 자동차는 같은 속성을 가지고 있지만 그 값은 각각 다르고, 다양한 기능을 수행
 <table>
     <tr>
-        <th style="width:30%;text-align:left">Object</th>
-        <th style="width:35%;text-align:left">Properties</th>
-        <th style="width:35%;text-align:left">Methods</th>
+        <th width="30%">Object</th>
+        <th width="35%">Properties</th>
+        <th width="35%">Methods</th>
     </tr>
     <tr>
-        <td rowspan="4" style="vertical-align:middle;text-align:left;border-bottom-width:0"><img src="img/genesis.png" alt=""></td>
+        <td rowspan="4"><img src="img/genesis.png" alt="" width="50%"></td>
         <td>car.name = 제네시스</td>
         <td>car.start()</td>
     </tr>
@@ -766,7 +766,7 @@ console.log(student.valueOf()); //Object {name: "Kim", score: 90}
 
 student 객체의 __ proto __ 프로퍼티가 가리키는 객체가 바로 Object.prototype 객체이며 hasOwnProperty(), toString(), valueOf() 등과 같은 모든 객체에서 호출 가능한 자바스크립트 기본 내장 메서드가 포함되어 있다.
 
-<img src="img/proto_object.png" alt="" style="width:80%;background:#1c1e20">
+<div style="background-color:#1c1e20"><img src="img/proto_object.png" alt="" width="80%"></div>
 
 ## Array.prototype
 배열 역시 __ proto __ 라는 숨겨진 내부 프로퍼티에 자신의 부모 Array.prototype 객체와 연결<br>모든 배열에 존재하는 length, push(), pop().. 등과 같은 메서드들을 상속
@@ -777,7 +777,7 @@ console.log(myArray.length); //0
 
 <img src="img/proto_array.png" alt="">
 
-<img src="img/proto_object2.png" alt="" style="width:80%;background:#1c1e20">
+<div style="background-color:#1c1e20"><img src="img/proto_object2.png" alt="" width="80%"></div>
 
 
 ## Function.prototype
@@ -813,6 +813,6 @@ var you = new Person('Lee'); //인스턴스 you 생성
 you.sayHi(); //Hi! Lee
 ```
 
-<img src="img/proto_object3.png" alt="" style="background:#1c1e20">
+<div style="background-color:#1c1e20"><img src="img/proto_object3.png" alt=""></div>
 
 자바스크립트의 모든 객체는 Object.prototype을 기반으로 확장. 이런 구조로 객체를 확장하는 방식을 프로토타입 기반 프로그래밍
