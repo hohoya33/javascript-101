@@ -766,8 +766,6 @@ console.log(student.valueOf()); //Object {name: "Kim", score: 90}
 
 student 객체의 __ proto __ 프로퍼티가 가리키는 객체가 바로 Object.prototype 객체이며 hasOwnProperty(), toString(), valueOf() 등과 같은 모든 객체에서 호출 가능한 자바스크립트 기본 내장 메서드가 포함되어 있다.
 
-<img src="img/proto_object.png" alt="" width="80%" bgcolor="black">
-
 ## Array.prototype
 배열 역시 __ proto __ 라는 숨겨진 내부 프로퍼티에 자신의 부모 Array.prototype 객체와 연결<br>모든 배열에 존재하는 length, push(), pop().. 등과 같은 메서드들을 상속
 ```js
@@ -776,9 +774,6 @@ console.log(myArray.length); //0
 ```
 
 <img src="img/proto_array.png" alt="">
-
-<img src="img/proto_object2.png" alt="" width="80%" bgcolor="black">
-
 
 ## Function.prototype
 __ proto __ 라는 숨겨진 내부 프로퍼티에 자신의 부모 Function.prototype 객체와 연결<br>
@@ -812,7 +807,3 @@ me.sayHi(); //Hi! Kim
 var you = new Person('Lee'); //인스턴스 you 생성
 you.sayHi(); //Hi! Lee
 ```
-
-<div bgcolor="black"><img src="img/proto_object3.png" alt=""></div>
-
-자바스크립트의 모든 객체는 Object.prototype을 기반으로 확장. 이런 구조로 객체를 확장하는 방식을 프로토타입 기반 프로그래밍
