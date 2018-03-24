@@ -821,7 +821,7 @@
 
 					<section>
 						<h2>Non Block-Level Scope</h2>
-						<p>var 선언된 변수는 Block-Level Scope를 사용하지 않으므로 x는 전역 변수</p>
+						<p>var로 선언된 변수는 Block-Level Scope를 사용하지 않으므로 x는 전역 변수</p>
 
 						<!-- 변수 x는 코드 블럭 내에서 선언되었다.
 						하지만 자바스크립트는 block-level scope를 사용하지 않으므로
@@ -960,7 +960,7 @@
 						<p>전역 스코프에서 변수 x를 찾고 존재하지 않으면<br>변수 x를 암묵적으로 전역변수로 선언</p>
 						<pre><code class="js">
 	function foo() {
-		x = 1;
+		x = 1; //var 생략 시 전역변수
 		var y = 2;
 	}
 	foo();
@@ -987,12 +987,12 @@
 	//y.js
 	for(var i = 0; i < 5; i++){
 		foo();
-		console.log(i); //무한 루프 상태
+		console.log(i); //무한 루프
 	}
                         </code></pre>
 
                     	<pre style="margin:0 auto"><code class="html">
-    &lt;!DOCTYPE html&gt;
+	&lt;!DOCTYPE html&gt;
 	&lt;html&gt;
 	&lt;body&gt;
 		&lt;script scr="x.js"&gt;&lt;/script&gt;
