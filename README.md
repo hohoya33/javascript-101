@@ -427,8 +427,8 @@ console.log(isSomeOdd); //true
 ## 객체 생성
 자바스크립트는 객체 기반 언어. 기본자료형을 제외한 나머지 함수, 배열, 정규표현식 등 모두 객체
 ```js
-var obj1 = {}; //객체 리터럴 사용
-var obj2 = new Object();
+var car = {}; //객체 리터럴 사용
+var car = new Object();
 ```
 
 ## 객체 속성 (Property)
